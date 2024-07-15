@@ -95,17 +95,22 @@ const rankCheck = score => {
   // 生成したメッセージと一緒に文字列を返す
   return `${score}文字打てました!\n${text}\n【OK】リトライ / 【キャンセル】終了`;
 };
-// ゲーム終了
+
+
+// ゲームが終了したら、タイムアップを表示する
 const gameOver = id => {
   clearInterval(id);
+  untypedfield.textContent = 'タイムアウト！';
 
-  console.log('ゲーム終了！');
+  // setTimeout関数を用いて、タイムアウト表示後にリザルト画面を表示する。※あえて1秒に設定しています。
+  setTimeout(() => {  
   const resule = confirm(rankCheck(score));
 
-  // OKボタンをクリックされたリロードする
-  if(resule ==true){
-    window.location.reload();
+    // OKボタンをクリックされたリロードする
+    if(resule ==true){
+      window.location.reload();
   }
+  },1000); 
 };
 
 // カウントダウンタイマー

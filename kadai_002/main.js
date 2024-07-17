@@ -101,6 +101,9 @@ const rankCheck = score => {
 // ゲームが終了したら、タイムアップを表示する
 const gameOver = id => {
   clearInterval(id);
+  // typingをクリア
+  typing = ''
+  typingfield.textContent = typing;
   // typedの文字をクリア
   typed = ''
   typedfield.textContent = typed;
@@ -117,7 +120,7 @@ const gameOver = id => {
     if(resule ==true){
       window.location.reload();
   }
-  },1000); 
+  },100); 
 };
 
 // カウントダウンタイマー

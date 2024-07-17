@@ -4,6 +4,7 @@ let typed = '';
 let score = 0;
 // カウント数の変数を用意
 let typing = 0;
+// タイムアップ用の変数を用意
 
 
 // 必要なHTML要素を所得
@@ -100,7 +101,13 @@ const rankCheck = score => {
 // ゲームが終了したら、タイムアップを表示する
 const gameOver = id => {
   clearInterval(id);
-  untypedfield.textContent = 'タイムアウト！';
+  // typedの文字をクリア
+  typed = ''
+  typedfield.textContent = typed;
+  // untypedの文字をクリア
+  untyped = ''
+  // タイムアップを表示する
+  untypedfield.textContent = 'タイムアップ！';
 
   // setTimeout関数を用いて、タイムアウト表示後にリザルト画面を表示する。※あえて1秒に設定しています。
   setTimeout(() => {  
